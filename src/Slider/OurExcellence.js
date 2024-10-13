@@ -8,15 +8,7 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
 
-const OurExcellence = () => {
-  const services = [
-    'Executive Search',
-    'Leadership',
-    'Contract',
-    'RPO',
-    'BFSI Onsite'
-  ];
-
+const OurExcellence = ({title, content}) => {
   return (
     <Container sx={{ padding: '3rem 0', borderRadius: '15px' }}>
       {/* Section Title */}
@@ -24,7 +16,7 @@ const OurExcellence = () => {
         variant="h3"
         sx={{ textAlign: 'center', fontWeight: 'bold', marginBottom: '3rem', color: '#1976d2' }}
       >
-        Our Excellence
+        {title}
       </Typography>
 
       {/* Swiper Slider Container */}
@@ -49,10 +41,13 @@ const OurExcellence = () => {
         >
 
           {/* Render each service as a slide */}
-          {services.map((service, index) => (
+          {content.map((service, index) => (
             <SwiperSlide key={index}>
               <Box
                 sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between', // Makes space between image and text
                   textAlign: 'center',
                   padding: '1.5rem',
                   backgroundColor: '#e3f2fd', // Light blue background for cards
@@ -67,20 +62,21 @@ const OurExcellence = () => {
               >
                 <img
                   src={`https://picsum.photos/seed/service${index}/300/200`}
-                  alt={service}
+                  alt={service.title}
                   style={{
                     borderRadius: '15px',
                     marginBottom: '1rem',
                     width: '100%',
                     height: 'auto',
                     transition: 'transform 0.3s',
+                    objectFit: 'cover', // Ensures the image covers the entire area
                   }}
                 />
                 <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#0d47a1' }}>
-                  {service}
+                  {service.title}
                 </Typography>
-                <Typography variant="body2" sx={{ marginTop: '0.5rem', color: '#555' }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <Typography variant="body2" sx={{ marginTop: '0.5rem', color: '#555', flexGrow: 1 }}>
+                  {service.description}
                 </Typography>
               </Box>
             </SwiperSlide>

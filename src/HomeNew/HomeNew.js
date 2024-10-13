@@ -6,16 +6,40 @@ import FooterNew from "./../FooterNew";
 import HeaderNew from "./../HeaderNew";
 import { LinkedIn, Facebook, Twitter, Instagram } from '@mui/icons-material';
 import OurExcellence from "./../Slider/OurExcellence";
+import SampleSlider from "./../HomeSlider/HomeSlider";
 
 // Sample Image URL for illustration purposes (use your images)
 const sampleImage = "https://picsum.photos/1920/600";
 
 // Component for the Home Page
 const HomePage = () => {
+  const services = [
+    {
+      title: "Industry Expertise",
+      description: "With years of experience in IT recruitment, we have a deep understanding of the technology sector. We stay ahead of trends, ensuring we connect you with the most qualified and forward-thinking talent available."
+    },
+    {
+      title: "Tailored Solutions",
+      description: "We don’t believe in one-size-fits-all approaches. Every client and candidate is unique, and we create customized recruitment strategies that align with your specific goals, ensuring a perfect fit every time."
+    },
+    {
+      title: "Quality Over Quantity",
+      description: "Our rigorous vetting process ensures we present only the top 2% of candidates. We focus on quality, delivering professionals with the right skill sets and cultural fit, minimizing turnover and maximizing long-term success."
+    },
+    {
+      title: "Speed and Efficiency",
+      description: "We understand the urgency of filling key positions. Our streamlined processes, combined with our extensive network, allow us to deliver highly qualified candidates faster without compromising quality."
+    },
+    {
+      title: "Long-Term Partnerships",
+      description: "Our goal is not just to fill a vacancy but to build long-lasting relationships with our clients and candidates. We are with you every step of the way, providing continuous support even after the hiring process is complete."
+    }
+  ];
+
   return (
     <Box sx={{ backgroundColor: '#e0f7fa', minHeight: '100vh', marginTop: { xs: '56px', md: '65px' }, paddingBottom: '2rem' }}>
       {/* Main Banner */}
-      <Box sx={{ textAlign: 'center', marginBottom: '2rem', position: 'relative' }}>
+      {/* <Box sx={{ textAlign: 'center', marginBottom: '2rem', position: 'relative' }}>
         <img
           src={sampleImage}
           alt="Banner"
@@ -48,7 +72,9 @@ const HomePage = () => {
             Subtitle or additional information
           </Typography>
         </Box>
-      </Box>
+      </Box> */}
+
+      <SampleSlider />
 
       {/* Stay Connected Section */}
       <Box
@@ -117,7 +143,7 @@ const HomePage = () => {
       </Container>
 
       {/* Our Excellence Section */}
-      <OurExcellence />
+      <OurExcellence title="Our Excellence" content={services}/>
 
       {/* Final Image with Text */}
       <Box sx={{ textAlign: 'center', marginTop: '2rem', marginBottom: '2rem', position: 'relative' }}>
